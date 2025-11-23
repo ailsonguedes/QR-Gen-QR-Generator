@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Gerador de QR</title>
+</head>
+<body>
+  <h1>Gerador de QR</h1>
+    <!-- Formulário simples que envia o texto para a rota POST /api/qrgen -->
+    <form action="/api/qrgen" method="post">
+      <label for="data">Texto para o QR:</label>
+      <input type="text" id="data" name="data" required>
+      <button type="submit">Gerar QR</button>
+    </form>
+    <!-- Ao submeter o formulário, o navegador fará um POST e receberá uma imagem PNG
+         que será baixada automaticamente porque o endpoint usa `as_attachment=True`. -->
+  <p>Ao enviar, o navegador fará download do arquivo <code>qrcode.png</code>.</p>
+</body>
+</html>
