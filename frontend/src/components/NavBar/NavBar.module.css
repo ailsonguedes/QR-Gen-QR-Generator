@@ -1,0 +1,70 @@
+.navBarContainer{
+    display: flex; /* Habilita o modo flex para os filhos diretos */
+    justify-content: space-between; /* Distribui o espaço entre os itens */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    padding-block: 0.5rem; /* Cuida do Topo (start) e Baixo (end) do Bloco */
+    padding-inline: 2.2rem; /* Cuida da Esquerda (start) e Direita (end) da Linha */
+    block-size: 3.7rem;
+
+    /* Lembre de definir cor e background color abaixo
+       também acrescente um backdrop-filter para desfoque*/
+    /* bg color */
+    background-color: var(--color-primary);
+    /* backdrop-filte */
+
+    position: sticky; /* Faz o nav acompanhar ao rolar a página */
+    inset-block-start: 0; /* Coloca o elemento no topo do eixo do bloco */
+
+    z-index: 1000; /* Garante que o nav fique acima de outros elementos */
+    inline-size: 100%; /* Faz o nav ocupar toda a largura disponível */
+    max-inline-size: 100%;
+
+    box-shadow: 0 1px 20px 5px rgba(0, 0, 0, 0.788);
+
+}
+
+.navBarLeft{
+    display: flex;
+    gap: 1rem;
+}
+
+.navBarRight{
+    display: flex;
+    gap: 1.8rem;
+    align-items: center;
+}
+
+.navBarLogo:hover{
+    cursor: pointer;
+}
+
+.navBarLeftTitle{
+    font-size: 1.5rem;
+    font-weight: bold;
+    /** color **/
+}
+
+.navBarLeftTitle:hover{
+    cursor: pointer;
+}
+
+.navBarRightLink{
+    font-size: 1rem;
+    text-decoration: none;
+    /** color **/
+    color: var(--color-text);
+    transition: transform 0.3s ease;
+}
+
+.navBarRightLink:hover{
+    text-decoration: none;
+    cursor: pointer;
+    
+    border-radius: 1rem;
+    transform: translateY(-2px);
+    
+    background-color: var(--color-primary-hover);
+    transition: background-color 0.3s ease;
+
+
+}

@@ -1,0 +1,28 @@
+:root{
+    --color-primary: #EDEBD7;
+    --color-primary-hover: #3B8EA5;
+    --color-bg: #2D728F;
+    --color-text: #0F1108;
+    --color-text-secundary: #EDEBD7;
+    --color-button-hover: #3B8EA5;
+    --color-button-secundary-hover: #DABFFF;
+
+} 
+
+html[data-theme="dark"]{
+    --color-primary: #3B8EA5;
+    --color-primary-hover: #2D728F;
+    --color-bg: #0F1108;
+    --color-text: #EDEBD7;
+    --color-text-secundary: #F5FFC6;
+    --color-button-hover: #2D728F;
+    --color-button-secundary-hover: #DABFFF;
+
+} 
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    
+    transition: background-color 0.3s ease, color 0.3s ease;
+}

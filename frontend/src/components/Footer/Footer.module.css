@@ -1,0 +1,108 @@
+.footerContainer{
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between;
+    align-items: center;
+
+    /* REMOVER: position: fixed; (Isso faz ele flutuar) */
+    /* REMOVER: block-size: 1rem; (Conflita com min-block-size) */
+
+    /* Garante altura mínima para o conteúdo interno, mas permite que cresça */
+    min-block-size: 6.6rem; 
+    
+    padding-block: 1rem;
+    padding-inline: 1.5rem;
+    
+    /* Garante que ocupe a largura total do container pai */
+    inline-size: 100%; 
+
+    background-color: var(--color-primary);
+}
+
+.footerLeftContainer{
+    display: flex;
+    gap: 0.3rem;
+}
+
+.footerRightContainer{
+    display: flex;
+    gap: 1.3rem;
+    align-items: center;
+}
+
+.textLeftFooter{
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: var(--color-text);
+}
+
+.footerRightLink{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: none;
+    background-color: transparent;
+    overflow: hidden;
+
+    inline-size: 1.5rem;
+    block-size: 1.5rem;
+
+
+    color: var(--color-text);
+
+    transition: transform 0.3s ease;
+
+}
+
+.footerRightLink:hover{
+    text-decoration: underline;
+    cursor: pointer;
+
+    transform: translateY(-2px);
+}
+
+.footerRightIcon:hover{
+    /* Em Desenvolvimento */
+}
+
+.footerRightButtonThemeToggle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: none;
+    background-color: transparent;
+    overflow: hidden;
+
+    inline-size: 1.5rem;
+    block-size: 1.5rem;
+
+    transition: transform 0.3s ease;
+}
+
+.footerRightButtonThemeToggle:hover{
+    cursor: pointer;
+    transform: translateY(-2px);
+    background-color: var(--color-button-secundary-hover);
+    border-radius: 1rem;
+}
+
+.themeIconSlide{
+    animation: footerIconSlideDown 0.4s ease forwards;
+}
+
+@keyframes footerIconSlideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-120%);
+    }
+    70% {
+        opacity: 1;
+        transform: translateY(10%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

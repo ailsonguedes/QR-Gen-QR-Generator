@@ -1,0 +1,22 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#root,
+body{
+    display: flex;
+    flex-direction: column;
+    min-block-size: 100vh;
+
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    background-color: var(--color-bg);
+}
+
+/* Este seletor deve corresponder à tag <main> ou <div> que envolve o conteúdo principal */
+.content-wrapper {
+    /* Esta linha empurra o footer para o fim, ocupando todo o espaço restante */
+    flex-grow: 1; 
+}

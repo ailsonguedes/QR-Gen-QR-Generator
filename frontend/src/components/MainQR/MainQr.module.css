@@ -1,0 +1,119 @@
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 3.5rem;
+    inline-size: 100%;
+    max-inline-size: 75rem; 
+    margin-block: 2.5rem;
+    margin-inline: auto;
+    box-sizing: border-box;
+    gap: 1.25rem;
+}
+
+.mainAbove{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 0.5rem;
+    inline-size: 100%;
+}
+
+.mainSubtitleAbove{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    block-size: 2rem;
+    min-inline-size: 200px;
+    inline-size: 20%;
+    
+
+    border-radius: 1rem;
+
+    background-color: var(--color-primary-hover);
+    color: var(--color-text-secundary);
+
+    transition: transform 0.3s ease;
+}
+
+.mainSubtitleAbove:hover{
+    cursor: pointer;
+    transform: translateY(-5px);
+
+}
+
+.mainTitleAbove{
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    color: var(--color-text-secundary);
+
+}
+
+.mainTextAbove{
+    font-size: 16px;
+    line-height: 1.2;
+    margin-block: 0.5rem; /* Vertical (Topo/Baixo) */
+    margin-inline: 1.25rem; /* Horizontal (Esquerda/Direita) */
+    color: var(--color-text-secundary);
+
+
+}
+
+/* mainBelow */
+
+.mainInputTextBelow{
+    display: flex;
+    align-items: center;
+
+    inline-size: 25rem;
+    margin-inline: auto;
+    block-size: 1.5rem;
+
+    border: none;
+    border-radius: 1rem;
+}
+
+.mainInputTextBelow::placeholder{
+    text-align: center;
+}
+
+.mainButtonBelow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 15px;
+    font-weight: bold;
+
+    background-color: var(--color-primary);
+    text-decoration: none;
+    border: none;
+    border-radius: 1rem;
+    block-size: 2rem;
+    inline-size: 200%;
+
+    margin-block: 0.7rem;
+    margin-inline-start: 6rem;
+    inline-size: 50%;
+
+    transition: transform 0.3s ease;
+
+}
+
+.mainButtonBelow:hover{
+    cursor: pointer;
+    background-color: var(--color-button-hover);
+    color: var(--color-text-secundary);
+    transform: translateY(-2px);
+}

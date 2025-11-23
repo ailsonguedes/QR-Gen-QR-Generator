@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  # Serviço de Backend (Flask)
+  backend:
+    build:
+      context: ./backend # Localização do código Flask
+      dockerfile: Dockerfile  # Nome padrão do Dockerfile dentro dessa pasta
+    container_name: qrgen_backend
+    ports:
+      - "5000:5000" # Mapeia a porta do container para a máquina local
+    volumes:
+      # Monta o código (para desenvolvimento) para que as mudanças sejam refletidas
+      - ./qrGenBackEnd:/app
+    environment:
+      # Garante que o Flask rode em modo desenvolvimento
+      - FLASK_ENV=development
+
+  # Serviço de Frontend (React/Vite + Nginx)
+  frontend:
+    build:
+      context: ./frontend # Localização do código React
+      dockerfile: Dockerfile   # Nome padrão do Dockerfile dentro dessa pasta
+    container_name: qrgen_frontend
+    ports:
+      - "80:80" # Mapeia a porta do Nginx para a porta 80 local (acesso via http://localhost)
+    depends_on:
+      - backend # Garante que o backend comece antes do frontend
+    # Se você for rodar o servidor de desenvolvimento Node:
+    # command: npm run dev
+    # volumes:
+    #   - ./frontend:/app
+    #   - /app/node_modules # Impede que o Docker substitua o node_modules
