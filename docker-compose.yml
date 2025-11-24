@@ -11,7 +11,7 @@ services:
       - "5000:5000" # Mapeia a porta do container para a máquina local
     volumes:
       # Monta o código (para desenvolvimento) para que as mudanças sejam refletidas
-      - ./qrGenBackEnd:/app
+      - ./backend:/app
     environment:
       # Garante que o Flask rode em modo desenvolvimento
       - FLASK_ENV=development

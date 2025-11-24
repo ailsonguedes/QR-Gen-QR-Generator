@@ -12,6 +12,7 @@ python-dotenv = "*"
 qrcode = "*"
 pillow = "*"
 flask-cors = "*"
+gunicorn = "*"
 
 [dev-packages]
 

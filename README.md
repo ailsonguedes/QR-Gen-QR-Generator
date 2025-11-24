@@ -38,13 +38,53 @@ O projeto foi construído utilizando uma **stack moderna e eficiente**, garantin
 
 * Ambiente Contenerizado: Execução completa da aplicação com apenas um comando (```docker-compose up```).
 
-## Componentes:
+## Componentes: 
 
 | Nome do Serviço | Tecnologia | Porta | Função |
 | :--- | :--- | :--- | :--- |
 | **Frontend** | **React + Nginx** | ```80``` | Camada de Apresentação. Responsável por capturar a entrada do usuário e exibir o QR Code. |
 | **Backend** | **Flask + Gunicorn** | ```5000``` | Camada de API. Processa a requisição, gera a imagem do QR Code e a retorna ao Frontend. |
 | **Orchestrator** | **Docker Compose** | N/A | Gerencia a construção, o ciclo de vida e a rede de ambos os contêineres. |
+
+# Arquitetura e Fluxo do Sistema:
+
+Para ilustrar a separação de responsabilidades e o fluxo de dados no QR Gen, o diagrama a seguir demonstra como os serviços do Frontend e do Backend se comunicam para gerar um QR Code.
+
+## Fluxo de Geração do QR Code:
+
+```
+
+    ┌─────────────────────────────────────────────────────────────┐
+    │             FRONTEND (React + TypeScript / Nginx)           │
+    │         Responsável pela Interface (Porta 80 no Docker)     │
+    │  (1) Usuário insere dados e solicita a criação do QR Code   │
+    └────────────────────────────┬────────────────────────────────┘
+                                 │
+                                 │ HTTP/REST (POST para /api/generate)
+                                 │ Solicitação com o link/texto
+                                 │
+    ┌────────────────────────────▼────────────────────────────────┐
+    │               BACKEND (Flask + Gunicorn)                    │
+    │          Responsável pela Lógica (Porta 5000 no Docker)     │
+    │  (2) Recebe dados e invoca a biblioteca Python para gerar   │
+    └────────────────────────────┬────────────────────────────────┘
+                                 │
+                                 │ Execução da lógica de geração
+                                 │ (e.g., Biblioteca `qrcode` em Python)
+                                 │
+    ┌────────────────────────────▼────────────────────────────────┐
+    │                 BIBLIOTECA DE GERAÇÃO                       │
+    │           (Cria a imagem do QR Code em memória)             │
+    └────────────────────────────┬────────────────────────────────┘
+                                 │
+                                 │ (3) Retorno da Imagem do QR Code (PNG)
+                                 │
+    ┌────────────────────────────▼────────────────────────────────┐
+    │             FRONTEND (React + TypeScript / Nginx)           │
+    │        (4) Recebe e exibe o QR Code para o usuário          │
+    └─────────────────────────────────────────────────────────────┘
+
+```
 
 ## Como Rodar o Projeto Localmente:
 

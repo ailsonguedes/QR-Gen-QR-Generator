@@ -8,7 +8,7 @@ WORKDIR /app
 COPY Pipfile Pipfile.lock /app/
 
 # Instala o Pipenv e as dependências
-RUN pip install pipenv && pipenv install --system --dev
+RUN pip install pipenv && pipenv install --system --deploy
 
 # Copia o restante do código
 COPY . /app
@@ -17,5 +17,5 @@ COPY . /app
 EXPOSE 5000
 
 # Comando para rodar o Flask
-CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "app:app"]
+CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "app:create_app()"]
 # Alternativa simples para desenvolvimento: CMD ["python", "app.py"]
