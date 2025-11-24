@@ -5,7 +5,7 @@ import styles from './MainQr.module.css'
 
 export function MainQr() {
     const [link, setLink] = useState('');
-    const [qrCodeImage, setQrCodeImage] = useState<string | null>(null);
+    const [, setQrCodeImage] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => { 
@@ -20,7 +20,7 @@ export function MainQr() {
             formData.append('data', link);
 
             // Faz a requisição POST para o backend Flask
-            const response = await fetch('http://localhost:5000/api/qrgen', {
+            const response = await fetch('http://127.0.0.1:5000/api/qrgen', {
                 method: 'POST',
                 body: formData,
                 // IMPORTANTE: Não defina 'Content-Type' manualmente aqui. 

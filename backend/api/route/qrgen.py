@@ -18,8 +18,7 @@ import qrcode
 
 # Nome da variável do blueprint exposta ao aplicativo
 # O usuário pediu especificamente que o nome fosse `qrgen_api`.
-qrgen_api = Blueprint('api', __name__)
-
+qrgen_api = Blueprint('qrgen_api', __name__)
 
 @qrgen_api.route('/qrgen', methods=['POST'])
 @swag_from({

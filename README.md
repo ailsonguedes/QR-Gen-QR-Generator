@@ -1,17 +1,6 @@
 # QR Gen: Gerador de QR Code com React e Flask
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
-
-
-![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-
-
-![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
 
 ## Visão Geral do Projeto e Propósito:
@@ -48,35 +37,6 @@ O projeto foi construído utilizando uma **stack moderna e eficiente**, garantin
 * Design Responsivo: Interface construída com foco em Mobile-First, garantindo usabilidade em tablets e smartphones.
 
 * Ambiente Contenerizado: Execução completa da aplicação com apenas um comando (```docker-compose up```).
-
-## Arquitetura do Sistema:
-
-A aplicação é dividida em três componentes principais, que se comunicam através da rede interna do Docker. O **Orquestrador** (```docker-compose```) é a camada que estabelece essa comunicação.
-
- ---verificar a arquitetura---
-```
-    graph TD
-    subgraph Frontend (React + TypeScript)
-        qrgenfront([qrGenFrontEnd])
-    end
-    
-    subgraph Orchestrator (Docker Compose)
-        qrgenorch([qr-gen-orchestrator])
-        qrgenorch -->|Configura a Rede Interna| qrgenfront
-    end
-    
-    subgraph Backend (Python + Flask)
-        qrgenback([qrGenBackEnd])
-    end
-
-    qrgenfront -- HTTP/REST (API Call) --> qrgenorch
-    qrgenorch -->|Redireciona para| qrgenback
-
-    style qrgenfront fill:#61DAFB,stroke:#333
-    style qrgenback fill:#000000,color:#FFFFFF,stroke:#333
-    style qrgenorch fill:#F0F0F0,stroke:#333
-
-```
 
 ## Componentes:
 
@@ -134,11 +94,11 @@ Abaixo está a estrutura de diretórios do repositório:
 
 ```
 .
-├── qrGenBackEnd/        # Aplicação Flask (Backend)
+├── backend/        # Aplicação Flask (Backend)
 │   ├── app.py           # Ponto de entrada da aplicação Flask
 │   ├── Pipfile          # Dependências Python (Flask, QR Code Generator)
 │   └── Dockerfile       # Instruções de build do container Flask
-├── qrGenFrontEnd/       # Aplicação React (Frontend)
+├── frontend/       # Aplicação React (Frontend)
 │   ├── src/             # Código fonte React/TypeScript
 │   ├── package.json     # Dependências Node (React, Vite)
 │   └── Dockerfile       # Instruções de build do container React/Nginx

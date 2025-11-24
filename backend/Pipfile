@@ -10,8 +10,8 @@ flask-marshmallow = "*"
 apispec = "*"
 python-dotenv = "*"
 qrcode = "*"
-flask-cors = "*"
 pillow = "*"
+flask-cors = "*"
 
 [dev-packages]
 
